@@ -3,3 +3,6 @@ import thunk from "redux-thunk";
 import { rootReducers } from "./reducers";
 
 export const store = createStore(rootReducers, applyMiddleware(thunk))
+
+
+export type State = ReturnType<typeof rootReducers>;
