@@ -11,12 +11,11 @@ interface Props extends PropsFromRedux {
 
 const AllProdacts: React.FC<Props>  = ({products}) => {
     const {fetchProducts} = useActions()
-    const stateMy = useSelector(state => state)
+
     useEffect(()=> {
       fetchProducts()
     }, [])
   
-    console.log(products)
     return (
         <ul>
             Products
@@ -30,12 +29,12 @@ const AllProdacts: React.FC<Props>  = ({products}) => {
     )
 }
 
-interface TestoStrinf {
-    test: string
+interface CategoryName {
+    category: string
 }
 
-const mapStateToProps = (state: State, test: TestoStrinf) => ({
-    products: selectTestCategory(state, test.test)
+const mapStateToProps = (state: State, category: CategoryName) => ({
+    products: selectTestCategory(state, category.category)
   })
   
   const connector = connect(mapStateToProps);
