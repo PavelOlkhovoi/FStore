@@ -3,6 +3,7 @@ import { State } from '../store';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useAction';
+import { selectProducts, selectTestCategory } from '../store/selectors';
 
 interface Props extends PropsFromRedux {
  
@@ -20,15 +21,21 @@ const AllProdacts: React.FC<Props>  = ({products}) => {
         <ul>
             Products
             {
-                products.products.map( p => <li key={p.id}>{p.title}</li>)
+                products.map( p => <li key={p.id}>
+                    {p.title}: Category {p.category}
+                    <div>Rating {p.rating.rate}</div>
+                </li>)
             }
         </ul>
     )
 }
 
+interface TestoStrinf {
+    test: string
+}
 
-const mapStateToProps = (state: State) => ({
-    products: state.products
+const mapStateToProps = (state: State, test: TestoStrinf) => ({
+    products: selectTestCategory(state, test.test)
   })
   
   const connector = connect(mapStateToProps);

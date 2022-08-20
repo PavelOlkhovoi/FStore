@@ -1,3 +1,16 @@
+export interface Product {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    image: string;
+    price: number;
+    rating: {
+        rate: number;
+        count: number;
+    }
+}
+
 export enum TypedOfProductsActions {
     FETCH_PRODUCTS = "FETCH_PRODUCTS",
     FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS",
@@ -9,7 +22,7 @@ export interface FetchProducts {
 }
 export interface FetchProductsSuccess {
     type: TypedOfProductsActions.FETCH_PRODUCTS_SUCCESS;
-    payload: any[]
+    payload: Product[]
 }
 export interface FetchProductsError {
     type: TypedOfProductsActions.FETCH_PRODUCTS_ERROR;
@@ -17,7 +30,7 @@ export interface FetchProductsError {
 }
 
 export interface RootState {
-    products: any[];
+    products: Product[];
     loading: boolean;
     error: null | string; 
 }
