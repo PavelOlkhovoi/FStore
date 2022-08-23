@@ -1,15 +1,11 @@
-import Categories from './components/categories/Categories';
 import './styles/App.css'
-
+import AppRoutes from './components/AppRoutes';
 
 
 const App = () => {
 
   return (
-    <div className="App">
-        <h1>Store some</h1>
-        <Categories />  
-    </div>
+  <AppRoutes />
   );
 }
 

@@ -3,9 +3,15 @@ import { State } from "./index";
 
 export const selectProducts = (state: State) => state.products
 
-export const selectTestCategory = createSelector([selectProducts, (state, category) => category], (a, cat) => {
+export const selectCategory = createSelector([selectProducts, (state, category) => category], (a, cat) => {
     if(cat === ''){
         return a.products
     }
     return a.products.filter( p => p.category === cat)
+})
+
+
+export const selectSingleProduct = createSelector([selectProducts, (state, productId) => 
+productId], ({products}, id) => {
+    return products.filter(p => p.id === id)
 })
