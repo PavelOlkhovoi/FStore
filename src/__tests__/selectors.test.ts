@@ -1,15 +1,10 @@
 import { selectProducts } from "../store/selectors";
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import { productsReducer } from "../store/reducers/productsReduser";
-import { Product, RootState } from "../types/products";
-import thunk from "redux-thunk";
-import { State } from "../store";
-import { categoriesReducer } from "../store/reducers/categoriesReducer";
-import { cartReducer } from "../store/reducers/cartReducer";
+import { AllProductsActions, RootState } from "../types/products";
+import { testStore } from "./testUtils/configStore";
 
-export interface TProductState {
-    products: Product[]
-}
+// export interface TProductState {
+//     products: Product[]
+// }
 
 
 const rootStateProductTest: RootState = {
@@ -48,22 +43,16 @@ interface TAction {
     type: "GET_PRODUCT",
 }
 
-const testProductReducer = (state = rootStateProductTest, action: TAction): RootState => {
+
+const testProductReducer = (state = rootStateProductTest, action: AllProductsActions): RootState => {
     switch (action.type) {
         default:
             return state
     }
 }
+const tStore = testStore(testProductReducer)
+const state = tStore.getState()
 
-const store = createStore(combineReducers({
-    products: testProductReducer,
-    categories: categoriesReducer,
-    carts: cartReducer,
-}), applyMiddleware(thunk))
-
-const state = store.getState()
-
-console.log(state)
 
 describe("Testing different selectors", ()=> {
     test('Derive all the products ', ()=> {
