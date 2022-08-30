@@ -1,5 +1,10 @@
 import React, { FC } from "react"
-const Cart = () => {
+
+export interface Props {
+    test: string
+}
+
+const Cart: FC<Props> = ({test}) => {
     return (
         <div className="cart">Cart</div>
     )
