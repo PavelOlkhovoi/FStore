@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Orders from '../pages/Orders'
 import Product from '../pages/Product';
 import Home from '../pages/Home';
+import Cart from '../pages/Cart';
 
 const AppRoutes = () => {
     return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
           <Route index element={<Home />} />
           <Route path='orders' element={<Orders />}/>
           <Route path='products/:productId' element={<Product />} />
+          <Route path='cart' element={<Cart />} />
 
           <Route
             path="*"

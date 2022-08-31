@@ -1,5 +1,4 @@
 import Categories from "../components/categories/Categories"
-import AllProducts from "./AllProducts"
 
 const Home = () => {
     return (
