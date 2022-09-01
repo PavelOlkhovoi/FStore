@@ -18,3 +18,9 @@ export const deleteProduct= (productId: number) => {
         dispatch({type: TypeOfCartsAction.DELETE_PRODUCT, idCart: 1, idProduct: productId})
     }
 }
+
+export const    changeQuantity = (productId: number, quantity: number) => {
+    return (dispatch: Dispatch<AllCartsActions>) => {
+        dispatch({type: TypeOfCartsAction.CHANGE_QUANTITY, cartId: 1, productId, quantity})
+    }
+}

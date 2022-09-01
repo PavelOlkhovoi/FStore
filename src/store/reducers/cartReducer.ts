@@ -35,6 +35,16 @@ export const cartReducer = (state = cartState, action: AllCartsActions): ICartSt
                 carts: copyStateArray
             }
 
+        case TypeOfCartsAction.CHANGE_QUANTITY:
+            const indexCartToUpdate = state.carts.findIndex(c => c.id === action.cartId)
+            const copyStateToUpdate = [...state.carts]
+            const targetProduct = copyStateToUpdate[indexCartToUpdate].products.filter(item => item.productId === action.productId)
+            targetProduct[0].quantity = action.quantity
+            return {
+                ...state,
+                carts: copyStateToUpdate
+            }
+
         case TypeOfCartsAction.DELETE_PRODUCT:
             const index = state.carts.findIndex(c => c.id === action.idCart)
             return {

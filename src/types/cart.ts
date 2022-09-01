@@ -18,20 +18,28 @@ export interface ICartState {
 export enum TypeOfCartsAction {
     INITIAL_CARD = "INITIAL_CARD",
     ADD_PRODUCT = "ADD_PRODUCT",
+    CHANGE_QUANTITY = "CHANGE_QUANTITY",
     DELETE_PRODUCT = "DELETE_PRODUCT",
     DELETE_CART = "DELETE_CART",
 }
 
 export interface InitialCart {
-    type: TypeOfCartsAction.INITIAL_CARD
+    type: TypeOfCartsAction.INITIAL_CARD;
 }
 
 export interface AddProductToCart {
     type: TypeOfCartsAction.ADD_PRODUCT;
     cartId: number;
     productId: number;
-    quantity: number
+    quantity: number;
 }
+
+export interface ChangeQuantity {
+    type: TypeOfCartsAction.CHANGE_QUANTITY;
+    productId: number;
+    quantity: number;
+    cartId: number;
+} 
 
 export interface DeleteProductFromCart {
     type: TypeOfCartsAction.DELETE_PRODUCT;
@@ -44,4 +52,4 @@ export interface DeleteCart {
     payload: number;
 }
 
-export type AllCartsActions = InitialCart | AddProductToCart | DeleteProductFromCart | DeleteCart
+export type AllCartsActions = InitialCart | AddProductToCart | DeleteProductFromCart | DeleteCart | ChangeQuantity

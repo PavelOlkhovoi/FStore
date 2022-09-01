@@ -22,11 +22,6 @@ const Categories: React.FC<Props> = ({categories, carts}) => {
           <div>
             <PrevCart />
             <h4>Cart</h4>
-            {
-              carts.carts.length !== 0 ?
-              carts.carts[0].products.map(p => <span key={p.productId}>{p.productId} | quantity: {p.quantity} --- </span>)
-              : null
-            }
           </div>
             <div>
           <h2>Categories</h2>
