@@ -2,11 +2,6 @@ import { selectProducts } from "../store/selectors";
 import { AllProductsActions, RootState } from "../types/products";
 import { testStore } from "./testUtils/configStore";
 
-// export interface TProductState {
-//     products: Product[]
-// }
-
-
 const rootStateProductTest: RootState = {
     products: [
         {

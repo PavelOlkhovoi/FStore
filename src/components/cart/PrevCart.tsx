@@ -7,7 +7,13 @@ const PrevCart = () => {
     const amount = carts.carts.length !== 0  ? carts.carts[0].products.length : 0
     
     return (
-        <Link to='cart' className="cart-prew">Cart Preview {amount}</Link>
+        <Link 
+        to='cart' 
+        className="cart-prew"
+        data-testid="prevcart"
+        >
+            Cart Preview {amount}
+        </Link>
     )
 }
 

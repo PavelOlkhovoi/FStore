@@ -10,15 +10,20 @@ const ProductCartView: FC<Props> = ({product, quantity}) => {
     const [amount, setAmount] = useState(0)
     const {deleteProduct, changeQuantity} = useActions()
     return (
-        <div className="cart-item">
+        <div className="cart-item" data-testid='cart-item'>
             <hr />
             <h3>{product.title}</h3>
             <span>Price: {product.price}</span>
             <p>{product.description}</p>
-            <p>{quantity}</p>
+            <p data-testid='quantity'>{quantity}</p>
             <span>Sum {product.price * quantity}</span>
             <button onClick={()=>deleteProduct(product.id)}>Delete</button>
-            <button onClick={()=>changeQuantity(product.id, quantity+1)}>Add quantity</button>
+            <button 
+            data-testid='cart-add'
+            onClick={()=>changeQuantity(product.id, quantity+1) }
+            >
+            Add quantity
+            </button>
             <button onClick={()=>changeQuantity(product.id, quantity-1)}>Add decrease</button>
             <hr />
         </div>
