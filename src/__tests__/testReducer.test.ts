@@ -12,9 +12,13 @@ const myState = {
 }
 
 
-describe('Test all the reducers', () => {
-    test('test', ()=> {
-        const red = cartReducer(myState, {type: TypeOfCartsAction.ADD_PRODUCT, cartId: 5, productId: 2, quantity: 1})
-        expect(red.carts[0].products[1].productId).toBe(2)
+describe('Test cart reducer', () => {
+    test('Add new product to cart', ()=> {
+        const red = cartReducer(myState, {type: TypeOfCartsAction.ADD_PRODUCT, cartId: 5, productId: 4, quantity: 1})
+        expect(red.carts[0].products[1].productId).toBe(4)
+    })
+    test('Update the quantity of a specific product', ()=> {
+        const red = cartReducer(myState, {type: TypeOfCartsAction.CHANGE_QUANTITY, cartId: 5, productId: 1, quantity: 2})
+        expect(red.carts[0].products[0].quantity).toBe(2)
     })
 })
