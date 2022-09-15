@@ -5,9 +5,10 @@ import { useActions } from './hooks/useAction';
 
 
 const App = () => {
-  const {categoriesActions, initCart} = useActions()
+  const {categoriesActions, initCart, authhWithLocalhost} = useActions()
   useEffect(()=> {
     initCart()
+    authhWithLocalhost()
   }, [])
   return (
   <AppRoutes />

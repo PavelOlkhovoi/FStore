@@ -1,11 +1,7 @@
 import { FC } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { faCheck, faTimes,faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import axios from "axios";
-import { json } from "stream/consumers";
-import { useDispatch } from "react-redux";
 import { useActions } from "../../hooks/useAction";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -14,16 +10,18 @@ type InputsLogin = {
   password: string,
 };
 
-
+export type CallBack = () => void;
 
 const Login: FC = () => {
     const { register, handleSubmit, watch, setError, formState: { errors } } = useForm<InputsLogin>();
     const {authUser} = useActions()
+    const navigate = useNavigate()
+    const myNav = () => navigate('/dashboard')
     const onSubmit: SubmitHandler<InputsLogin> = async (data) => {
 
-        authUser(data.username, data.password)
-        
-        console.log(data);
+        authUser(data.username, data.password, myNav)
+
+
     }
 
     return (

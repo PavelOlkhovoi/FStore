@@ -7,11 +7,20 @@ const rootUser: RootUser = {
 
 export const userReducer = (state = rootUser, action: AllUserAction) => {
     switch(action.type) {
+
         case TypedUserAction.USER_LOGIN:
             return {
                 ...state,
                 user: action.user,
-                isAuthed: true,
+                isAuth: true,
+            }
+        
+        case TypedUserAction.USER_LOGOUT:
+            console.log("Reducer", action)
+            return {
+                ...state,
+                user: null,
+                isAuth: false,
             }
         
         default: 

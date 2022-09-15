@@ -27,6 +27,7 @@ export interface User {
 
 export enum TypedUserAction {
     USER_LOGIN = 'USER_LOGIN',
+    USER_LOGOUT = 'USER_LOGOUT',
 }
 
 export interface LoginUser {
@@ -35,4 +36,8 @@ export interface LoginUser {
     payload: string,
 }
 
-export type AllUserAction = LoginUser
+export interface LogoutUser {
+    type: TypedUserAction.USER_LOGOUT,
+}
+
+export type AllUserAction = LoginUser | LogoutUser

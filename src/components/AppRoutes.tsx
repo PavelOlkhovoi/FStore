@@ -4,7 +4,10 @@ import Orders from '../pages/Orders'
 import Product from '../pages/Product';
 import Home from '../pages/Home';
 import Cart from '../pages/Cart';
-import Login from '../pages/auth/Login';
+import Login from '../pages/user/Login';
+import IsAuthed from '../HOCs/IsAthed';
+import UserDashboard from '../pages/user/UserDashboard';
+import Logout from '../pages/user/Logout';
 
 const AppRoutes = () => {
     return (
@@ -15,6 +18,13 @@ const AppRoutes = () => {
           <Route path='products/:productId' element={<Product />} />
           <Route path='cart' element={<Cart />} />
           <Route path='login' element={<Login />} />
+          <Route path='logout' element={<Logout />} />
+
+          <Route path='dashboard' element={
+            <IsAuthed >
+              <UserDashboard/>
+            </IsAuthed>
+          }></Route>
 
           <Route
             path="*"
