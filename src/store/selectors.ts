@@ -15,3 +15,10 @@ export const selectSingleProduct = createSelector([selectProducts, (state, produ
 productId], ({products}, id) => {
     return products.filter(p => p.id === id)
 })
+
+export const selectArrayOfProduct = (state: State, ids: number[]) => {
+    const allProducts = selectProducts(state)
+
+    return allProducts.products.filter(p => ids.includes(p.id))
+
+}

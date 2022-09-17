@@ -1,13 +1,9 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { State } from '../store';
 import { Navigate } from "react-router-dom"
-import { useTypedSelector } from "../hooks/useTypedSelect"
 import React, {FC,ReactNode, useEffect} from "react"
 import { RootUser } from '../types/user';
 
-// interface Props {
-//     children?: React.ReactChild | React.ReactNode;
-// }
 interface Props extends PropsFromRedux {
     children?: React.ReactChild | React.ReactNode;
 }
