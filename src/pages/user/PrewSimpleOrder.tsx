@@ -7,7 +7,7 @@ interface Props {
     order: ICart
 }
 
-const OneOrder: FC<Props> = ({ order }) => {
+const PrewSimpleOrder: FC<Props> = ({ order }) => {
     const { products } = useTypedSelector(state => selectProducts(state))
     const orderedProducts = order.products
 
@@ -18,13 +18,15 @@ const OneOrder: FC<Props> = ({ order }) => {
         return productId.includes(id)
     })
 
-    const productsWithQuantity = orderedProducts.forEach(p => {
-        const targetProduct = allProducts.findIndex(item => item.id === p.productId)
+    const productsWithQuantity = orderedProducts.forEach( p => {
+        const targetProduct = allProducts.findIndex( item => item.id === p.productId)
         const singleProduct = allProducts[targetProduct];
 
         singleProduct.quantity = p.quantity
     })
-    console.log("Products", allProducts)
+
+    console.log(allProducts)
+ 
     return (
         <div>
             { order.date }
@@ -39,4 +41,4 @@ const OneOrder: FC<Props> = ({ order }) => {
     )
 }
 
-export default OneOrder
+export default PrewSimpleOrder

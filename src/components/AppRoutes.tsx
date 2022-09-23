@@ -8,6 +8,7 @@ import Login from '../pages/user/Login';
 import IsAuthed from '../HOCs/IsAthed';
 import UserDashboard from '../pages/user/UserDashboard';
 import Logout from '../pages/user/Logout';
+import SimpleOrder from '../pages/user/SimpleOrder';
 
 const AppRoutes = () => {
     return (
@@ -23,6 +24,12 @@ const AppRoutes = () => {
           <Route path='dashboard' element={
             <IsAuthed >
               <UserDashboard/>
+            </IsAuthed>
+          }></Route>
+
+          <Route path='orders' element={
+            <IsAuthed >
+              <SimpleOrder/>
             </IsAuthed>
           }></Route>
 

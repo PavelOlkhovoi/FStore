@@ -7,8 +7,9 @@ import { useActions } from './hooks/useAction';
 const App = () => {
   const {categoriesActions, initCart, authhWithLocalhost} = useActions()
   useEffect(()=> {
-    initCart()
     authhWithLocalhost()
+    initCart()
+    console.log('Appp matha faka')
   }, [])
   return (
   <AppRoutes />

@@ -18,6 +18,7 @@ export const authhWithLocalhost = () => {
             const token: UsernameToken = jwt(getToken)
     
             const getAllUsers = await axios.get('https://fakestoreapi.com/users')
+            console.log('Debag With local host', getAllUsers)
             const allUsers: User[] = getAllUsers.data
             const authedUser =  allUsers.filter(u => u.username === token.user)
     

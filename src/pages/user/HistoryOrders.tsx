@@ -1,6 +1,7 @@
 import { useState, useEffect, FC } from "react"
 import { CartProducts, ICart } from "../../types/cart"
-import OneOrder from "./OneOrder"
+import PrewSimpleOrder from "./PrewSimpleOrder"
+
 
 interface Props {
     id: number | undefined
@@ -20,7 +21,7 @@ const HistoryOrders: FC<Props> = (id) => {
     return (
         <>
         <h1>History Orders</h1>
-            {carts.map( c => <OneOrder order={c} key={c.id}/>)}
+            {carts.map( c => <PrewSimpleOrder order={c} key={c.id}/>)}
         </>
     )
 }
