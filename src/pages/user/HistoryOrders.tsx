@@ -14,9 +14,10 @@ const HistoryOrders: FC<Props> = (id) => {
         fetch(`https://fakestoreapi.com/carts/user/${id.id}`)
         .then(res=>res.json())
         .then(json=>setCarts(json))
+        console.log('Fetching')
     }, [])
 
-    console.log(carts)
+    console.log('History cards', carts)
 
     return (
         <>

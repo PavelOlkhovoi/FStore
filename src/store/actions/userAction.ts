@@ -12,11 +12,16 @@ interface UsernameToken {
 export const authhWithLocalhost = () => {
     console.log('Local host')
     return async (dispatch: Dispatch<AllUserAction>) => {
+        // HandleFetching 
+        dispatch({type: TypedUserAction.USER_FETCHING})
         if(localStorage.getItem("currentUser")){
-            console.log('LocalStorage')
+
             const getToken = localStorage.getItem("currentUser") || ""
             const token: UsernameToken = jwt(getToken)
     
+ 
+            console.log('LocalStorage')
+
             const getAllUsers = await axios.get('https://fakestoreapi.com/users')
             console.log('Debag With local host', getAllUsers)
             const allUsers: User[] = getAllUsers.data
@@ -38,6 +43,8 @@ export const authUser = (username: string, password: string, cb: CallBack) => {
             })
             const token: UsernameToken = jwt(result.data.token)
             const userNickName = token.user
+
+            dispatch({type: TypedUserAction.USER_FETCHING})
 
             const getAllUsers = await axios.get('https://fakestoreapi.com/users')
             const allUsers: User[] = getAllUsers.data

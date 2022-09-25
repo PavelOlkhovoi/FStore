@@ -9,29 +9,37 @@ interface Props extends PropsFromRedux {
     children?: React.ReactChild | React.ReactNode;
 }
 const IsAuthed: React.FC<Props> = ({children, user}) => {
-    const {authhWithLocalhost} = useActions()
 
-    // const testPepepe = () => {
-    //     console.log('Is auth page', user.user)
-    //     if(user.user === null){
-    //         console.log('Do not show user')
-    //         return <Navigate to='/login' />
-    //     }
-    // }
+    const { authhWithLocalhost } = useActions()
 
-    if(user.user === null){
+    useEffect(()=> {
+        console.log('IsAuthe 1')
+        authhWithLocalhost()
+        console.log('IsAuthe 2')
+      }, [])
+
+      const testCheck = localStorage.getItem("currentUser")
+ 
+
+    if(user.user === null && testCheck === ""){
         console.log('Do not show user')
+        console.log('IsAuthe 3')
         return <Navigate to='/login' />
     }
+
+    console.log('IS_LOADING', user.loading)
+    if(user.loading){
+        return <h1>Loading</h1>
+    }
+
+    
+    console.log('IS_LOADING', user.loading)
 
 
 
     return (
         <> 
-        {
-
-        }
-            { children }
+        { children }
         </>
     )
 }

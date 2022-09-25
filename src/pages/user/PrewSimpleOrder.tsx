@@ -25,7 +25,7 @@ const PrewSimpleOrder: FC<Props> = ({ order }) => {
         singleProduct.quantity = p.quantity
     })
 
-    console.log(allProducts)
+    console.log('All Products', allProducts)
  
     return (
         <div>
