@@ -5,13 +5,9 @@ import { useActions } from './hooks/useAction';
 
 
 const App = () => {
-  const {categoriesActions, initCart, authhWithLocalhost} = useActions()
+  const {initialData} = useActions()
   useEffect(()=> {
-    console.log('Apppppppppppppppppp 1')
-    authhWithLocalhost()
-    console.log('Apppppppppppppppppp 2')
-    initCart()
-    console.log('Apppppppppppppppppp 3')
+    initialData()
   }, [])
   return (
   <AppRoutes />

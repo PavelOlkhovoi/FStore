@@ -19,7 +19,7 @@ export const deleteProduct= (productId: number) => {
     }
 }
 
-export const    changeQuantity = (productId: number, quantity: number) => {
+export const changeQuantity = (productId: number, quantity: number) => {
     return (dispatch: Dispatch<AllCartsActions>) => {
         dispatch({type: TypeOfCartsAction.CHANGE_QUANTITY, cartId: 1, productId, quantity})
     }

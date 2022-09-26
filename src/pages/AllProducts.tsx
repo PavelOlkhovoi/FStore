@@ -7,13 +7,7 @@ import SingleCard from '../components/UI/cards/SingleCard';
 
 interface Props extends PropsFromRedux {}
 
-const AllProdacts: React.FC<Props>  = ({products}) => {
-    const {fetchProducts} = useActions()
-
-    useEffect(()=> {
-      fetchProducts()
-    }, [])
-  
+const AllProdacts: React.FC<Props>  = ({ products }) => {
     return (
         <div>
             Products

@@ -1,6 +1,7 @@
 import { useState, useEffect, FC } from "react"
+import { Link } from "react-router-dom"
 import { useTypedSelector } from "../../hooks/useTypedSelect"
-import { selectArrayOfProduct, selectProducts } from "../../store/selectors"
+import { selectProducts } from "../../store/selectors"
 import { CartProducts, ICart } from "../../types/cart"
 
 interface Props {
@@ -24,18 +25,16 @@ const PrewSimpleOrder: FC<Props> = ({ order }) => {
 
         singleProduct.quantity = p.quantity
     })
-
-    console.log('All Products', allProducts)
  
     return (
         <div>
             { order.date }
             <hr />
             {
-                allProducts.map( p => <div key={p.id}>
+                allProducts.map( p => <Link to={`/order/${p.id}`} key={p.id}>
                     <h3>{p.title}</h3>
                     <div>{p.price}$ | quantity: {p.quantity}</div>
-                </div>)
+                </Link>)
             }
         </div>
     )

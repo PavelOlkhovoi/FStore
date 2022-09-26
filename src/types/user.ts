@@ -34,7 +34,7 @@ export enum TypedUserAction {
 
 export interface LoginUser {
     type: TypedUserAction.USER_LOGIN,
-    user: User,
+    user: User | null,
     payload: string,
 }
 

@@ -18,7 +18,6 @@ const Product: FC = () => {
             <p>{product.price}</p>
             <p>Raiting{product.rating.rate}</p>
             <img src={product.image} style={{width: '300px'}}/>
-
         </div>
     )
 }

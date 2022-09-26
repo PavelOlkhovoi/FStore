@@ -4,42 +4,28 @@ import { Navigate } from "react-router-dom"
 import React, {FC,ReactNode, useEffect} from "react"
 import { RootUser } from '../types/user';
 import { useActions } from '../hooks/useAction';
+import { LoadingState } from '../store/reducers/loadingReducer';
 
 interface Props extends PropsFromRedux {
     children?: React.ReactChild | React.ReactNode;
 }
-const IsAuthed: React.FC<Props> = ({children, user}) => {
+const IsAuthed: React.FC<Props> = ({children, user, loading}) => {
 
-    const { authhWithLocalhost } = useActions()
+    const localCheck = localStorage.getItem("currentUser")
 
-    useEffect(()=> {
-        console.log('IsAuthe 1')
-        authhWithLocalhost()
-        console.log('IsAuthe 2')
-      }, [])
 
-      const testCheck = localStorage.getItem("currentUser")
- 
-
-    if(user.user === null && testCheck === ""){
-        console.log('Do not show user')
-        console.log('IsAuthe 3')
+    if(user.user === null && localCheck === null){
         return <Navigate to='/login' />
     }
 
-    console.log('IS_LOADING', user.loading)
-    if(user.loading){
+    if(loading.loading){
         return <h1>Loading</h1>
     }
-
-    
-    console.log('IS_LOADING', user.loading)
-
 
 
     return (
         <> 
-        { children }
+            { children }
         </>
     )
 }
@@ -47,8 +33,9 @@ const IsAuthed: React.FC<Props> = ({children, user}) => {
 
 const mapStateToProps = (state: State) => {
     const user: RootUser = state.user
+    const loading: LoadingState = state.loading
 
-    return {user}
+    return {user, loading}
   }
   
   const connector = connect(mapStateToProps);

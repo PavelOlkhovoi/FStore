@@ -9,6 +9,9 @@ interface Props {
 
 const HistoryOrders: FC<Props> = (id) => {
     const [carts, setCarts] = useState<ICart[]>([])
+
+
+    //TODO: GET USER_CARTS
     
     useEffect(()=> {
         fetch(`https://fakestoreapi.com/carts/user/${id.id}`)
