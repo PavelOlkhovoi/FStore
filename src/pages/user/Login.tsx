@@ -2,6 +2,8 @@ import { FC } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useActions } from "../../hooks/useAction";
 import { useNavigate } from 'react-router-dom'
+import { useTypedSelector } from "../../hooks/useTypedSelect";
+import { stat } from "fs/promises";
 
 
 
@@ -13,6 +15,7 @@ type InputsLogin = {
 export type CallBack = () => void;
 
 const Login: FC = () => {
+    const userError = useTypedSelector(state => state.user.error)
     const { register, handleSubmit, watch, setError, formState: { errors } } = useForm<InputsLogin>();
     const {authUser} = useActions()
     const navigate = useNavigate()
@@ -27,6 +30,7 @@ const Login: FC = () => {
     return (
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
         <form onSubmit={handleSubmit(onSubmit)}>
+
         {/* register your input into the hook by invoking the "register" function */}
         <input placeholder="username" type="text" {...register("username", { required: true })} />
         {errors.username && <span>Username field is required</span>}
@@ -39,8 +43,12 @@ const Login: FC = () => {
         <input type="submit" onClick={()=> setError("username", {
             type: 'custom',
             message: 'email is wrong'
-        })} />
+        })} 
+        />
         <p>{errors.username?.message}</p>
+        {
+            userError ? <p>The user's name or password is incorrect</p> : ''
+        }
         </form>
     );
 }

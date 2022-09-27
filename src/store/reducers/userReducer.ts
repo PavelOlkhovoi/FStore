@@ -3,7 +3,7 @@ import { AllUserAction, RootUser, TypedUserAction } from "../../types/user"
 const rootUser: RootUser = {
     user: null,
     isAuth: false,
-    loading: false,
+    error: null,
 } 
 
 export const userReducer = (state = rootUser, action: AllUserAction) => {
@@ -21,7 +21,7 @@ export const userReducer = (state = rootUser, action: AllUserAction) => {
                 ...state,
                 user: action.user,
                 isAuth: true,
-                loading: false,
+                error: null
             }
         
         case TypedUserAction.USER_LOGOUT:
@@ -29,6 +29,14 @@ export const userReducer = (state = rootUser, action: AllUserAction) => {
                 ...state,
                 user: null,
                 isAuth: false,
+            }
+
+        case TypedUserAction.USER_FETCHING_ERROR:
+            return {
+                ...state,
+                user: null,
+                isAuth: false,
+                error: action.message
             }
         
         default: 

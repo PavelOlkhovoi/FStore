@@ -9,29 +9,29 @@ interface UsernameToken {
     iat: string
 }
 
-export const authhWithLocalhost = () => {
-    console.log('Local host')
-    return async (dispatch: Dispatch<AllUserAction>) => {
-        // HandleFetching 
-        dispatch({type: TypedUserAction.USER_FETCHING})
-        if(localStorage.getItem("currentUser")){
+// export const authhWithLocalhost = () => {
+//     // console.log('Local host')
+//     // return async (dispatch: Dispatch<AllUserAction>) => {
+//     //     // HandleFetching 
+//     //     dispatch({type: TypedUserAction.USER_FETCHING})
+//     //     if(localStorage.getItem("currentUser")){
 
-            const getToken = localStorage.getItem("currentUser") || ""
-            const token: UsernameToken = jwt(getToken)
+//     //         const getToken = localStorage.getItem("currentUser") || ""
+//     //         const token: UsernameToken = jwt(getToken)
     
  
-            console.log('LocalStorage')
+//     //         console.log('LocalStorage')
 
-            const getAllUsers = await axios.get('https://fakestoreapi.com/users')
-            console.log('Debag With local host', getAllUsers)
-            const allUsers: User[] = getAllUsers.data
-            const authedUser =  allUsers.filter(u => u.username === token.user)
+//     //         const getAllUsers = await axios.get('https://fakestoreapi.com/users')
+//     //         console.log('Debag With local host', getAllUsers)
+//     //         const allUsers: User[] = getAllUsers.data
+//     //         const authedUser =  allUsers.filter(u => u.username === token.user)
     
-            dispatch({type: TypedUserAction.USER_LOGIN, user: authedUser[0] , payload: 'authed'})
-        }
-    }
+//     //         dispatch({type: TypedUserAction.USER_LOGIN, user: authedUser[0] , payload: 'authed'})
+//     //     }
+//     // }
        
-}
+// }
 
 export const authUser = (username: string, password: string, cb: CallBack) => {
     return async (dispatch: Dispatch<AllUserAction>) => {
@@ -57,7 +57,11 @@ export const authUser = (username: string, password: string, cb: CallBack) => {
             cb()
             
         } catch (error) {
-            console.log('Username pr Password is not correct')
+            console.log(error)
+            dispatch({
+                type: TypedUserAction.USER_FETCHING_ERROR,
+                message: 'Username pr Password is not correct',
+            })
         }
     }
 }

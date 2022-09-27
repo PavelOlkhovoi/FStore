@@ -1,7 +1,7 @@
 export interface RootUser {
     user: User | null;
     isAuth: boolean;
-    loading: boolean;
+    error: null | string;
 }
 
 export interface User {
@@ -29,7 +29,8 @@ export interface User {
 export enum TypedUserAction {
     USER_LOGIN = 'USER_LOGIN',
     USER_LOGOUT = 'USER_LOGOUT',
-    USER_FETCHING = 'USER_FETCHING'
+    USER_FETCHING = 'USER_FETCHING',
+    USER_FETCHING_ERROR = 'USER_FETCHING_ERROR',
 }
 
 export interface LoginUser {
@@ -46,4 +47,12 @@ export interface LogoutUser {
     type: TypedUserAction.USER_LOGOUT,
 }
 
-export type AllUserAction = LoginUser | LogoutUser | FetchingUser
+export interface LogoutUser {
+    type: TypedUserAction.USER_LOGOUT,
+}
+export interface UserFetchingError {
+    type: TypedUserAction.USER_FETCHING_ERROR,
+    message: string
+}
+
+export type AllUserAction = LoginUser | LogoutUser | FetchingUser | UserFetchingError
