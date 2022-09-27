@@ -1,11 +1,11 @@
 import { Dispatch } from "redux"
 import { TypeOfCartsAction, AllCartsActions } from "../../types/cart"
 
-export const initCart = () => {
-    return (dispatch: Dispatch<AllCartsActions>) => {
-        dispatch({type: TypeOfCartsAction.INITIAL_CARD})
-    }
-}
+// export const initCart = () => {
+//     return (dispatch: Dispatch<AllCartsActions>) => {
+//         dispatch({type: TypeOfCartsAction.INITIAL_CARD})
+//     }
+// }
 
 export const addProduct= (productId: number) => {
     return (dispatch: Dispatch<AllCartsActions>) => {
