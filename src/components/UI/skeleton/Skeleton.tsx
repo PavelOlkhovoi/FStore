@@ -10,11 +10,10 @@ const Skeleton: FC<Props> = ({children}) => {
     const [menu, sidebar, content] = React.Children.toArray(children)
 
     return (
-        <div className={classes.test}>
+        <div className={classes.maingrid}>
             <div>{menu}</div>
             <div>{sidebar}</div>
             <div>{content}</div> 
-            <div>Hi, Test</div>
         </div>
     )
 }
