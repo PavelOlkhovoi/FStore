@@ -3,17 +3,25 @@ import { CategoriesState, AllCategories, TypeOfCategories } from "../../types/ca
 const categoriesState: CategoriesState = {
     categories: [],
     loading: false,
-    error: null
+    error: null,
+    active: []
 }
 
 export const categoriesReducer = (state = categoriesState, action: AllCategories) => {
     switch (action.type){
         case TypeOfCategories.FETCH_CATEGORIES:
-            return {loading: true, error: null, categories: []}
+            return {...state, loading: true, categories: [], active: []}
         case TypeOfCategories.FETCH_CATEGORIES_SUCCESS:
-            return {loading: false, error: null, categories: action.payload}
+            return {...state, categories: action.payload, active: []}
         case TypeOfCategories.FETCH_CATEGORIES_ERROR:
-            return {loading: false, error: action.payload, categories: []}
+            return {...state, error: action.payload, categories: [], active: []}
+        case TypeOfCategories.ACTIVE_CATEGORIES:
+            return {...state, active: [...state.active, action.payload]}
+        case TypeOfCategories.TOGGLE_ACTIVE_CATEGORIES:
+            return {
+                ...state,
+                active: state.active.filter( c => c !== action.payload)
+            }
         
         default: 
             return state

@@ -14,3 +14,15 @@ export const categoriesActions = () => {
         }
     }
 }
+
+export const setActiveCategory = (category: string) => {
+    return (dispatch: Dispatch<AllCategories>) => {
+        dispatch({type: TypeOfCategories.ACTIVE_CATEGORIES, payload: category})
+    }
+}
+
+export const toggleActiveCategory = (category: string) => {
+    return (dispatch: Dispatch<AllCategories>) => {
+        dispatch({type: TypeOfCategories.TOGGLE_ACTIVE_CATEGORIES, payload: category})
+    }
+}
