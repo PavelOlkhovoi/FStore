@@ -2,12 +2,13 @@ import { connect, ConnectedProps } from 'react-redux'
 import { State } from '../store';
 import React, { useEffect } from 'react';
 import { useActions } from '../hooks/useAction';
-import { selectCategory } from '../store/selectors';
+import { selectActiveCategory, selectCategory } from '../store/selectors';
 import SingleCard from '../components/UI/cards/SingleCard';
 
 interface Props extends PropsFromRedux {}
 
 const AllProdacts: React.FC<Props>  = ({ products }) => {
+    console.log(products)
     return (
         <div>
             Products
@@ -19,12 +20,9 @@ const AllProdacts: React.FC<Props>  = ({ products }) => {
     )
 }
 
-interface CategoryName {
-    category: string
-}
 
-const mapStateToProps = (state: State, category: CategoryName) => ({
-    products: selectCategory(state, category.category)
+const mapStateToProps = (state: State) => ({
+    products: selectActiveCategory(state)
   })
   
   const connector = connect(mapStateToProps);

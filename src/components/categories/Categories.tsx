@@ -4,6 +4,7 @@ import { State } from "../../store";
 import { useActions } from '../../hooks/useAction'
 import { useEffect, useState } from 'react';
 import PrevCart from "../cart/PrevCart";
+import AllProducts from "../../pages/AllProducts";
 
 interface Props extends PropsFromRedux {
  
@@ -45,7 +46,7 @@ const Categories: React.FC<Props> = ({categories, activeCat}) => {
           }
           </div>
         </div>
-        {/* <AllProducts category={category} /> */}
+        <AllProducts />
         </div>
     )
 }
