@@ -4,6 +4,7 @@ import { State } from "../../store";
 import { useActions } from '../../hooks/useAction'
 import { useEffect } from 'react';
 import { firstCapitalLetter } from "../../utils/reducers/commonFunc";
+import classes from "../categories/Categories.module.css"
 
 
 interface Props extends PropsFromRedux {
@@ -29,10 +30,11 @@ const Categories: React.FC<Props> = ({categories, activeCat}) => {
         <div className="category">
           <div>
             <h2>Categories</h2>
-          <div>
+          <div className={classes.allcategories}>
             {
               categories.map((cat, index) => 
-              <div 
+              <div
+              className={activeCat.includes(cat) ? classes.active : ''}
               key={index}
               onClick={()=> handleActiveCategory(cat)}
               >

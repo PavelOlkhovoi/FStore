@@ -1,0 +1,9 @@
+.active {
+    color: green;
+}
+
+.allcategories > div:hover {
+    cursor: pointer;
+    color: darkblue;
+    transition: all 4ms ease-in-out;
+}
