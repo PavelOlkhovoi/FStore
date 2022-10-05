@@ -11,9 +11,9 @@ const Skeleton: FC<Props> = ({children}) => {
 
     return (
         <div className={classes.maingrid}>
-            <div>{menu}</div>
-            <div>{sidebar}</div>
-            <div>{content}</div> 
+            <div className={classes.menu}>{menu}</div>
+            <div className={classes.filter}>{sidebar}</div>
+            <div className={classes.content}>{content}</div> 
         </div>
     )
 }

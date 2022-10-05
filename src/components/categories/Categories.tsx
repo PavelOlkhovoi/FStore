@@ -1,10 +1,10 @@
-import React, {FC} from "react"
+import React from "react"
 import { connect, ConnectedProps} from 'react-redux';
 import { State } from "../../store";
 import { useActions } from '../../hooks/useAction'
-import { useEffect, useState } from 'react';
-import PrevCart from "../cart/PrevCart";
-import AllProducts from "../../pages/AllProducts";
+import { useEffect } from 'react';
+import { firstCapitalLetter } from "../../utils/reducers/commonFunc";
+
 
 interface Props extends PropsFromRedux {
  
@@ -25,34 +25,27 @@ const Categories: React.FC<Props> = ({categories, activeCat}) => {
     useEffect(()=> {
       categoriesActions()
     }, [])
-
-    console.log('Active Component', activeCat)
     return (
         <div className="category">
           <div>
-            <PrevCart />
-            <h4>Cart</h4>
-          </div>
-            <div>
-          <h2>Categories</h2>
+            <h2>Categories</h2>
           <div>
-          {
-            categories.map((cat, index) => <div 
-            key={index}
-            onClick={()=> handleActiveCategory(cat)}
-            >
-              {cat}
-            </div>)
-          }
+            {
+              categories.map((cat, index) => 
+              <div 
+              key={index}
+              onClick={()=> handleActiveCategory(cat)}
+              >
+                {firstCapitalLetter(cat)}
+              </div>)
+            }
+            </div>
           </div>
-        </div>
-        <AllProducts />
         </div>
     )
 }
 
 const mapStateToProps = (state: State) => {
-  // console.log('Active Mape State to props', state.categories.active)
   return {
     categories: state.categories.categories,
     activeCat: state.categories.active

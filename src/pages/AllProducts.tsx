@@ -8,15 +8,15 @@ import SingleCard from '../components/UI/cards/SingleCard';
 interface Props extends PropsFromRedux {}
 
 const AllProdacts: React.FC<Props>  = ({ products }) => {
-    console.log(products)
     return (
-        <div>
-            Products
+        <>
+        <h4>Products</h4>
+        <div className='cards_container'>
             {
                 products.map( p => <SingleCard product={p} key={p.id}/>)
             }
-            <hr />
         </div>
+        </>
     )
 }
 

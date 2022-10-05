@@ -1,4 +1,22 @@
 .maingrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 58px 1fr;
+    grid-gap: 10px;
+
+    grid-template-areas: 
+        'menu menu'
+        'filter content';
+}
+
+.menu {
+    grid-area: menu;
+}
+
+.filter {
+    grid-area: filter;
+}
+
+.content {
+    grid-area: content;
 }
