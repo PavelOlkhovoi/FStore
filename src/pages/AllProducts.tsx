@@ -1,7 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { State } from '../store';
-import React, { useEffect } from 'react';
-import { useActions } from '../hooks/useAction';
+import React from 'react';
 import { selectActiveCategory, selectCategory } from '../store/selectors';
 import SingleCard from '../components/UI/cards/SingleCard';
 
@@ -19,6 +18,7 @@ const AllProdacts: React.FC<Props>  = ({ products }) => {
         </>
     )
 }
+
 
 
 const mapStateToProps = (state: State) => ({

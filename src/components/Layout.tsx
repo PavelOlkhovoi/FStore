@@ -10,10 +10,9 @@ const Layout = () => {
             <Skeleton>
                 <Menu />
                 <Categories/>
-                {/* <Outlet /> */}
                 <AllProducts />
+                {/* <Outlet /> */}
             </Skeleton>
-
         </div>
     )
 }

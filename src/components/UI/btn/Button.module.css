@@ -1,0 +1,23 @@
+.btn {
+    cursor: pointer;
+    outline-style: none;
+    background-color: rgb(38, 202, 38);
+    padding: 0.6rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin: 4px;
+    color: white;
+    transition: all 0.4s ease-in;
+}
+
+.btn:hover {
+    background-color: white;
+    border: 1px solid rgb(38, 202, 38);
+    color: black;
+}
+
+.btn:disabled {
+    background-color: gray;
+    opacity: 0.3;
+    color: black;
+}
