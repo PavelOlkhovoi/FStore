@@ -1,10 +1,15 @@
 import Categories from "../components/categories/Categories"
+import Skeleton from "../components/UI/skeleton/Skeleton"
+import AllProducts from "./AllProducts"
+import Menu from "../components/menu/Menu"
 
 const Home = () => {
     return (
         <div className="container">
-            <h1> Home Page </h1>
-            <Categories  />
+            <Skeleton>
+                <Categories/>
+                <AllProducts />
+            </Skeleton>
         </div>
     )
 }

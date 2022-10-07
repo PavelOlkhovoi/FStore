@@ -7,12 +7,8 @@ import Skeleton from "./UI/skeleton/Skeleton"
 const Layout = () => {
     return (
         <div className="container">
-            <Skeleton>
-                <Menu />
-                <Categories/>
-                <AllProducts />
-                {/* <Outlet /> */}
-            </Skeleton>
+            <Menu />
+            <Outlet />
         </div>
     )
 }

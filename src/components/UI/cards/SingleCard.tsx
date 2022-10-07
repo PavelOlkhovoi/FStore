@@ -37,7 +37,10 @@ const SingleCard: React.FC<Props> = ({product}) => {
                 >
                     Add to cart
                 </Button>
-                <Button onClick={()=>handleClickDelet(product.id)}>Delete from cart</Button>
+                <Button
+                    onClick={()=>handleClickDelet(product.id)
+                }
+                >Delete from cart</Button>
             </div>
         </div>
   

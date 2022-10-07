@@ -1,0 +1,30 @@
+.formwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 34px 40px 82px 40px;
+    margin-top: 5%;
+}
+
+.formwrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .formwrapper form > div {
+    margin-top: 16px;
+} */
+
+
+.formwrapper form * input:not([type="submit"]) {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

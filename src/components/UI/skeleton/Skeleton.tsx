@@ -7,11 +7,10 @@ interface Props {
 }
 
 const Skeleton: FC<Props> = ({children}) => {
-    const [menu, sidebar, content] = React.Children.toArray(children)
+    const [sidebar, content] = React.Children.toArray(children)
 
     return (
         <div className={classes.maingrid}>
-            <div className={classes.menu}>{menu}</div>
             <div className={classes.filter}>{sidebar}</div>
             <div className={classes.content}>{content}</div> 
         </div>
