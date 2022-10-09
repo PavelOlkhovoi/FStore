@@ -1,7 +1,8 @@
 .maingrid {
+    padding: 24px 48px;
     display: grid;
     grid-template-columns: 30% 1fr;
-    grid-template-rows: 58px 1fr;
+    grid-template-rows: 1fr;
     grid-gap: 10px;
 
     grid-template-areas: 
