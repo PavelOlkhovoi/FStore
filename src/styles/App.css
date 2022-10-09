@@ -8,6 +8,34 @@
   padding: 0;
 }
 
+.menu-cart {
+  display: flex;
+  position: relative;
+}
+
+.menu-cart svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 8px;
+  align-items: center;
+  fill: black;
+}
+
+.menu-cart-caunter {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: white;
+  border: 1px solid green;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .cards_container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);

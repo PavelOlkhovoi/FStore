@@ -6,7 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     width?: string;
 }
 
-const Button: FC<ButtonProps> = ({ children, width = 'auto'}, props) => {
+const Button: FC<ButtonProps> = ({ children, width = 'auto', ...props}) => {
     return (
         <button
             style={{width: width}}
