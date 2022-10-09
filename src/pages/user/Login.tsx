@@ -47,13 +47,6 @@ const Login: FC = () => {
                 </div>
                 
                 <div>
-{/* 
-                <input type="submit" onClick={()=> setError("username", {
-                    type: 'custom',
-                    message: 'email is wrong'
-                })} 
-                />
-                <p>{errors.username?.message}</p> */}
 
                 <Button
                 width={"100%"}

@@ -1,8 +1,10 @@
-import { useState, useEffect, FC } from "react"
+import { FC } from "react"
 import { Link } from "react-router-dom"
 import { useTypedSelector } from "../../hooks/useTypedSelect"
 import { selectProducts } from "../../store/selectors"
-import { CartProducts, ICart } from "../../types/cart"
+import {  ICart } from "../../types/cart"
+import { formatCost, formatData } from "../../utils/reducers/commonFunc"
+import classes from "./styles/Login.module.css"
 
 interface Props {
     order: ICart
@@ -28,12 +30,17 @@ const PrewSimpleOrder: FC<Props> = ({ order }) => {
  
     return (
         <div>
-            { order.date }
+            { formatData(order.date) }
             <hr />
             {
-                allProducts.map( p => <Link to={`/order/${p.id}`} key={p.id}>
+                allProducts.map( p => <Link 
+                    to={`/order/${p.id}`} 
+                    key={p.id}
+                    className={classes.orderwrap}
+                    >
                     <h3>{p.title}</h3>
-                    <div>{p.price}$ | quantity: {p.quantity}</div>
+                    <p className={classes.detail}>Sum: {formatCost(p.price)}</p>
+                    <p className={classes.detail}>Quantity: {p.quantity}</p>
                 </Link>)
             }
         </div>

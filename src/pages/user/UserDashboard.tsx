@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react"
 import Skeleton from "../../components/UI/skeleton/Skeleton"
 import { useTypedSelector } from "../../hooks/useTypedSelect"
 import HistoryOrders from "./HistoryOrders"
+import { firstCapitalLetter } from "../../utils/reducers/commonFunc"
+import { FC } from "react";
 
 
-export const TestTitle = () => {
+interface Props {
+    firstname: string | undefined;
+    lastname: string | undefined
+}
+export const DashboardTitle: FC<Props> = ({firstname, lastname}) => {
     const user = useTypedSelector(state => state.user)
     return (
         <div>
-            <h1>User Dashboard</h1>
-            <h3>{user.user?.name.firstname} {user.user?.name.lastname}</h3>
+            <h1>Dashboard</h1>
+            <h3>{firstCapitalLetter(firstname)} {firstCapitalLetter(lastname)}</h3>
         </div>
     )
 }
 
 const UserDashboard = () => {
-    const user = useTypedSelector(state => state.user)
-    console.log('user id', user.user?.id)
+    const user = useTypedSelector(state => state.user.user)
     return (
         <div>
            <Skeleton>
-            <TestTitle />
-            <HistoryOrders id={user.user?.id} />
+            <DashboardTitle firstname={user?.name.firstname} lastname={user?.name.lastname} />
+            <HistoryOrders id={user?.id} />
            </Skeleton>
         </div>
     )
