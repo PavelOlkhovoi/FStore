@@ -9,7 +9,7 @@ const PrevCart = () => {
     return (
         <Link 
         to='cart' 
-        className="cart-prew"
+        className="cart-prev"
         data-testid="prevcart"
         >
             <div className="menu-cart">
