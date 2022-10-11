@@ -29,6 +29,15 @@
     box-sizing: border-box;
 }
 
+.allorders {
+    background-color: white;
+    padding: 24px;
+}
+
+.allorders a {
+    color: black;
+}
+
 .detail {
     padding: 0;
     margin: 6px 0;

@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.cart {
+  padding: var(--maxPaddingOfMainBlocks);
+}
+
 .menu-cart {
   display: flex;
   position: relative;
@@ -51,6 +55,13 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 24px;
+}
+
+.product-full {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
 }
 
 @media only screen and (max-width: 1000px) {

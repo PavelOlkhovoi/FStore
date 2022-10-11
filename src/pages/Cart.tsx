@@ -10,8 +10,7 @@ const Cart: FC = () => {
         )
     return (
         <div className="cart" data-testid="page-cart">
-            Cart
-            <hr />
+            <h1>The Cart</h1>
             {
                 carts.length !== 0 
                 ?

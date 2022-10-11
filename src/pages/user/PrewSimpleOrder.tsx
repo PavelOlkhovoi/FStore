@@ -29,7 +29,7 @@ const PrewSimpleOrder: FC<Props> = ({ order }) => {
     })
  
     return (
-        <div>
+        <div className={classes.allorders}>
             { formatData(order.date) }
             <hr />
             {

@@ -3,29 +3,49 @@ import { CartProducts } from '../../types/cart'
 import { State } from "../../store";
 import {FC, useState} from 'react'
 import { useActions } from '../../hooks/useAction';
+import Button from '../UI/btn/Button';
+import { formatCost } from "../../utils/reducers/commonFunc"
+import classes from "./styles/ProductCartView.module.css"
 
 interface Props extends PropsFromRedux {}
 
 const ProductCartView: FC<Props> = ({product, quantity}) => {
-    const [amount, setAmount] = useState(0)
     const {deleteProduct, changeQuantity} = useActions()
     return (
-        <div className="cart-item" data-testid='cart-item'>
-            <hr />
+        <div className={classes.onecard} data-testid='cart-item'>
             <h3>{product.title}</h3>
-            <span>Price: {product.price}</span>
-            <p>{product.description}</p>
-            <p data-testid='quantity'>{quantity}</p>
-            <span>Sum {product.price * quantity}</span>
-            <button onClick={()=>deleteProduct(product.id)}>Delete</button>
-            <button 
-            data-testid='cart-add'
-            onClick={()=>changeQuantity(product.id, quantity+1) }
-            >
-            Add quantity
-            </button>
-            <button onClick={()=>changeQuantity(product.id, quantity-1)}>Add decrease</button>
-            <hr />
+            <div className={classes.cartimg}>
+                <img src={product.image} alt={product.title} />
+            </div>
+
+            <div className={classes.info}>
+             <div className={classes.stats}>
+                    <div>
+                        <b>Price:</b> {formatCost(product.price)}
+                    </div>
+                    <div data-testid='quantity'>
+                        <b>Quantity:</b> {quantity}
+                    </div>
+                </div>
+                <p className={classes.description}>
+                    {product.description}
+                </p>
+                <span className={classes.total}>
+                    <b>Total:</b> {formatCost(product.price * quantity)}
+                </span>
+                <Button 
+                    onClick={()=>deleteProduct(product.id)}
+                    >
+                        Delete product
+                </Button>
+                <Button 
+                    data-testid='cart-add'
+                    onClick={()=>changeQuantity(product.id, quantity+1) }
+                >
+                +
+                </Button>
+                <Button onClick={()=>changeQuantity(product.id, quantity-1)}>-</Button>
+            </div>
         </div>
     )
 }
