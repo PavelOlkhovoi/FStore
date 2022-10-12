@@ -6,9 +6,10 @@ import { State } from "./index";
 
 
 export const selectProducts = (state: State) => state.products
-export const selectProductsWithPagination = (state: State) => {
-    const allProducts = state.products.products
-    const testP = pagination(allProducts, 3,3)
+export const selectProductsWithPagination = (state: State, item: number, step: number) => {
+    const allProducts = selectActiveCategory(state)
+    console.log(allProducts.length)
+    const testP = pagination(allProducts, item, step)
 
     return testP
 }
@@ -34,7 +35,7 @@ export const selectActiveCategory = (state: State) => {
         return activeCat.includes(n.category)
     })
 
-    return activeCat.length === 0 ? pagination(product, 6,1) : pagination(filtredProduct, 6, 1)
+    return activeCat.length === 0 ? product : filtredProduct;
 }
 
 

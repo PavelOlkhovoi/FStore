@@ -22,8 +22,8 @@ const AllProdacts: React.FC<Props>  = ({ products }) => {
 
 
 const mapStateToProps = (state: State) => ({
-    products: selectActiveCategory(state)
-    // products: selectProductsWithPagination(state)
+    //products: selectActiveCategory(state)
+     products: selectProductsWithPagination(state, state.pagination.items, state.pagination.step)
   })
   
   const connector = connect(mapStateToProps);
