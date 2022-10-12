@@ -27,17 +27,27 @@ export const formatData = (data: string) => {
 
 export const pagination = <T>(arr: T[], items: number, step: number): T[] => {
     const copyNewArray = [...arr]
-    const rightLength = copyNewArray.length + 1
-    //const position = Math.round(rightLength / items)
 
     let start = 0
 
     for (let i = 1; i < step; i++) {
-        console.log(i)
         start += items
       }
-    console.log('Start', start)
+
     const segment = copyNewArray.slice(start, start+items)
 
     return segment
+}
+
+export const paginationForUi = <T>(arr: T[], items: number): number[] => {
+        const realLength = arr.length+1
+        const steps = Math.round(realLength / items)
+        const stepsArray: number[] = []
+
+        for (let i = 1; i <= steps; i++) {
+            stepsArray.push(i)
+        }
+
+        console.log("Array For Ui", stepsArray)
+    return stepsArray
 }
