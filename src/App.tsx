@@ -8,6 +8,7 @@ const App = () => {
   useEffect(()=> {
     initialData()
   }, [])
+  console.log('App render')
   return (
     <>
       <AppRoutes />

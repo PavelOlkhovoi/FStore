@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { State } from '../store';
 import React from 'react';
-import { selectActiveCategory} from '../store/selectors';
+import { selectActiveCategory, selectProductsWithPagination} from '../store/selectors';
 import SingleCard from '../components/UI/cards/SingleCard';
 
 interface Props extends PropsFromRedux {}
@@ -22,7 +22,8 @@ const AllProdacts: React.FC<Props>  = ({ products }) => {
 
 
 const mapStateToProps = (state: State) => ({
-    products: selectActiveCategory(state)
+    //products: selectActiveCategory(state)
+     products: selectProductsWithPagination(state, state.pagination.items, state.pagination.step)
   })
   
   const connector = connect(mapStateToProps);

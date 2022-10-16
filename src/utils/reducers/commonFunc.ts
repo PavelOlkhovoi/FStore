@@ -20,9 +20,33 @@ export const formatCost = (number: number) => {
 }
 
 export const formatData = (data: string) => {
-
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     const formattedDay = new Date(data)
 
     return formattedDay.toLocaleDateString()
+}
+
+export const pagination = <T>(arr: T[], items: number, step: number): T[] => {
+    const copyNewArray = [...arr]
+
+    let start = 0
+
+    for (let i = 1; i < step; i++) {
+        start += items
+      }
+
+    const segment = copyNewArray.slice(start, start+items)
+
+    return segment
+}
+
+export const paginationForUi = <T>(arr: T[], items: number): number[] => {
+        const realLength = arr.length+1
+        const steps = Math.round(realLength / items)
+        const stepsArray: number[] = []
+
+        for (let i = 1; i <= steps; i++) {
+            stepsArray.push(i)
+        }
+
+    return stepsArray
 }
