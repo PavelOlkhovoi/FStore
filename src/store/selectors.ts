@@ -1,6 +1,5 @@
 import { createSelector } from "reselect";
-import { Product } from "../types/products";
-import { pagination } from "../utils/reducers/commonFunc";
+import { pagination, paginationForUi } from "../utils/reducers/commonFunc";
 import { State } from "./index";
 
 
@@ -8,10 +7,19 @@ import { State } from "./index";
 export const selectProducts = (state: State) => state.products
 export const selectProductsWithPagination = (state: State, item: number, step: number) => {
     const allProducts = selectActiveCategory(state)
-    console.log(allProducts.length)
     const testP = pagination(allProducts, item, step)
 
     return testP
+}
+
+export const selectPaginationItems = (state: State) => {
+    return state.pagination.items
+}
+
+export const selectProductsLength = (state: State) => {
+    const allProducts = selectActiveCategory(state)
+    const items = selectPaginationItems(state)
+    return paginationForUi(allProducts, items)
 }
 
 

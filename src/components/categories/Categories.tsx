@@ -11,16 +11,16 @@ interface Props extends PropsFromRedux {
  
 }
 const Categories: React.FC<Props> = ({categories, activeCat}) => {
-    const {categoriesActions, setActiveCategory, toggleActiveCategory} = useActions()
+    const {categoriesActions, setActiveCategory, toggleActiveCategory, changeStepAction} = useActions()
 
     const handleActiveCategory = (cat: string) => {
       if(activeCat.includes(cat)){
-        console.log('Toggle')
         toggleActiveCategory(cat)
       }else {
-        console.log('Set')
         setActiveCategory(cat)
       }
+
+      changeStepAction(1)
 
     }
     useEffect(()=> {

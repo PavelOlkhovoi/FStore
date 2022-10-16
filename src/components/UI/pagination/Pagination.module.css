@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    margin: 20px 0;
+}
+
+.pagination > div:not(:first-child) {
+    margin-left: 12px;
+}
+.pagination > div {
+    width: 24px;
+    height: 24px;
+    border: 1px solid blue;
+    text-align: center;
+    line-height: 22px;
+    transition: all 4ms ease-in;
+}
+
+.pagination > div:hover {
+    cursor: pointer;;
+    border: 1px solid rgb(146, 146, 247);
+}
+
+.item {
+    background-color: rgb(228, 255, 255);
+}
+
+.item.active {
+    background-color: rgb(73, 232, 25);
+}

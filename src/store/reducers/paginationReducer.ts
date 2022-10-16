@@ -2,7 +2,7 @@ import { AllPaginationActions, PaginationState, TypeOfPagination } from "../../t
 
 export const paginationState: PaginationState = {
     step: 1,
-    items: 6,
+    items: 3,
 }
 
 export const paginationReducer = (state = paginationState, action: AllPaginationActions) => {

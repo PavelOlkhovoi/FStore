@@ -48,6 +48,5 @@ export const paginationForUi = <T>(arr: T[], items: number): number[] => {
             stepsArray.push(i)
         }
 
-        console.log("Array For Ui", stepsArray)
     return stepsArray
 }
