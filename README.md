@@ -1,6 +1,6 @@
 # FStore - shopping website prototype
 > Simple e-commerce created with React, Redux, and TypeScript.
-> Live demo [_here_](https://www.example.com).
+> Live demo [_here_](https://f-store-olkhovoi.netlify.app/).
 
 ## Table of Contents
 * [General Info](#general-information)
