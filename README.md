@@ -1,6 +1,7 @@
 # FStore - shopping website prototype
 > Simple e-commerce created with React, Redux, and TypeScript.
 > Live demo [_here_](https://f-store-olkhovoi.netlify.app/).
+> For authorization, use the following credentials: login - mor_2314 password - 83r5^_
 
 ## Table of Contents
 * [General Info](#general-information)
