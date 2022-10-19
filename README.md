@@ -44,5 +44,5 @@ I want to add new advanced features for filtering.
 
 ## Room for Improvement
 Room for improvement:
-- Save active status for the "Add to cart button" when navigating the pages.
+- Add the price fild in the current cart.
 - Selectors refactoring

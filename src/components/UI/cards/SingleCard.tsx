@@ -1,6 +1,8 @@
-import React, { FC, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { useActions } from "../../../hooks/useAction";
+import { useTypedSelector } from "../../../hooks/useTypedSelect";
+import { selectProductsArrInCurrentCart } from "../../../store/selectors";
 import { Product } from "../../../types/products"
 import { firstCapitalLetter } from "../../../utils/reducers/commonFunc";
 import Button from "../btn/Button";
@@ -13,7 +15,14 @@ interface Props {
 const SingleCard: React.FC<Props> = ({product}) => {
     const {addProduct, deleteProduct} = useActions()
     const [btnActive, setBtnActive] = useState(false)
-    
+    const productsArr = useTypedSelector(state => selectProductsArrInCurrentCart(state))
+
+    useEffect(()=> {
+        if(productsArr.includes(product.id)){
+            setBtnActive(true)
+        }
+    }, [])
+
     const handleClickAdd = (id: number) => {
         addProduct(id)
         setBtnActive(true)

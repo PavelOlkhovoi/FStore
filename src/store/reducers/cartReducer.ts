@@ -23,7 +23,6 @@ export const cartReducer = (state = cartState, action: AllCartsActions): ICartSt
         case TypeOfCartsAction.ADD_PRODUCT:
             const indexCart = myFindIndex(copyStateArray, 'id', action.cartId)
 
-            // Check if productId has already been added 
             const ifUnique = copyStateArray[indexCart].products.filter( item => item.productId === action.productId)
 
             if (ifUnique.length === 0) {
