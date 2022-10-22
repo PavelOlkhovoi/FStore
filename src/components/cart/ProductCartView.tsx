@@ -60,7 +60,7 @@ const mapStateToProps = (products: State, detail: ProductIdArr) => {
     const [product] = products.products.products.filter(p => p.id === productId)
     return {
         product,
-        quantity
+        quantity,
     }
 }
 

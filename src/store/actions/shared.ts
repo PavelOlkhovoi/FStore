@@ -1,4 +1,3 @@
-import { type } from "os"
 import { Dispatch } from "react"
 import { fetchAllProducts, fetchUser } from "../../api"
 import { AllCartsActions, TypeOfCartsAction } from "../../types/cart"

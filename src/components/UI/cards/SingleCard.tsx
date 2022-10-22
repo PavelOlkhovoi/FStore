@@ -15,7 +15,7 @@ interface Props {
 const SingleCard: React.FC<Props> = ({product}) => {
     const {addProduct, deleteProduct} = useActions()
     const [btnActive, setBtnActive] = useState(false)
-    const productsArr = useTypedSelector(state => selectProductsArrInCurrentCart(state))
+    const productsArr = useTypedSelector(state => selectProductsArrInCurrentCart(state)? selectProductsArrInCurrentCart(state) : [])
 
     useEffect(()=> {
         if(productsArr.includes(product.id)){

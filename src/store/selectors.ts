@@ -1,4 +1,5 @@
-import { createSelector } from "reselect";
+import { createSelector, createSelectorCreator } from "reselect";
+import { Product } from "../types/products";
 import { pagination, paginationForUi } from "../utils/reducers/commonFunc";
 import { State } from "./index";
 
@@ -8,9 +9,9 @@ export const selectProducts = (state: State) => state.products
 
 export const selectProductsWithPagination = (state: State, item: number, step: number) => {
     const allProducts = selectActiveCategory(state)
-    const testP = pagination(allProducts, item, step)
+    const limitedProducts = pagination(allProducts, item, step)
 
-    return testP
+    return limitedProducts
 }
 
 export const selectPaginationItems = (state: State) => {
@@ -48,11 +49,63 @@ productId], ({products}, id) => {
 })
 
 
-export const selectArrayOfProduct = (state: State, ids: number[]) => {
+export const selectArrayOfProduct = (state: State, ids: number[]): Product[] => {
     const allProducts = selectProducts(state)
 
     return allProducts.products.filter(p => ids.includes(p.id))
 
 }
 
-export const selectProductsArrInCurrentCart = (state: State) => state.carts.carts[0].products.map(i => i.productId)
+export const selectProductsArrInCurrentCart = (state: State): number[] => {
+    if(!state.carts.carts[0]){
+        console.log('Iuda')
+        return []
+    }else {
+        console.log('Lora dont come hire')
+        return state.carts.carts[0].products.length !== 0 ? state.carts.carts[0].products.map(i => i.productId) : []
+    }
+
+}
+
+// export const selectTotalCart = (state: State) => {
+//     const productsId = selectProductsArrInCurrentCart(state)
+//     const products = selectArrayOfProduct(state, productsId)
+//     const productWithQuantity = products.map(p => {
+//         const quantity = selectGetQuantityById(state, p.id)
+//         return quantity * p.price
+//     })
+//     return productWithQuantity.reduce((previousValue, currentValue) => currentValue + previousValue)
+// }
+
+
+
+export const selectTotalCart = createSelector(
+    [
+        selectProductsArrInCurrentCart, 
+        selectProducts,
+        (state: State) => state.carts.carts[0].products
+    ], (productsId, products, productCart) => {
+        if(productsId.length === 0){
+            return 0
+        }else {
+            const productsInsideCart = products.products.filter(item => productsId.includes(item.id))
+       
+            const arrayTotals = productsInsideCart.map( p => {
+             const productCartObj = productCart.filter( item => item.productId === p.id)
+             const quantity = productCartObj[0].quantity
+             return p.price * quantity
+            })
+     
+            return arrayTotals ? arrayTotals.reduce((current, next) => current + next) : arrayTotals[0]
+        }
+      
+
+})
+
+// export const selectGetQuantityById = (state: State, id: number) => {
+//     const quantity = state.carts.carts[0].products.filter(i => {
+//         return i.productId === id
+//     })
+
+//     return quantity[0].quantity
+// }

@@ -1,9 +1,14 @@
+.allcategories > div {
+    margin: 4px 0;
+}
+
 .active {
     color: green;
+    font-weight: 500;
 }
 
 .allcategories > div:hover {
     cursor: pointer;
-    color: darkblue;
+    color: yellowgreen;
     transition: all 4ms ease-in-out;
 }
