@@ -11,9 +11,7 @@ const Cart: FC = () => {
         ? state.carts.carts[0].products 
         : []
         )
-
         const total = useTypedSelector(state => selectTotalCart(state))
-        console.log("!!!!!!!!!!!", carts)
     return (
         <div className="cart" data-testid="page-cart">
             <h1>The Cart</h1>

@@ -58,37 +58,25 @@ export const selectArrayOfProduct = (state: State, ids: number[]): Product[] => 
 
 export const selectProductsArrInCurrentCart = (state: State): number[] => {
     if(!state.carts.carts[0]){
-        console.log('Iuda')
         return []
     }else {
-        console.log('Lora dont come hire')
         return state.carts.carts[0].products.length !== 0 ? state.carts.carts[0].products.map(i => i.productId) : []
     }
 
 }
 
-// export const selectTotalCart = (state: State) => {
-//     const productsId = selectProductsArrInCurrentCart(state)
-//     const products = selectArrayOfProduct(state, productsId)
-//     const productWithQuantity = products.map(p => {
-//         const quantity = selectGetQuantityById(state, p.id)
-//         return quantity * p.price
-//     })
-//     return productWithQuantity.reduce((previousValue, currentValue) => currentValue + previousValue)
-// }
-
-
 
 export const selectTotalCart = createSelector(
     [
         selectProductsArrInCurrentCart, 
-        selectProducts,
-        (state: State) => state.carts.carts[0].products
-    ], (productsId, products, productCart) => {
-        if(productsId.length === 0){
+        (state: State) => state.carts.carts[0] ? state.carts.carts[0].products : [],
+        (state: State) => state.products ? state.products.products : []
+    ], (productsId, productCart, product) => {
+
+        if(productsId.length === 0 ){
             return 0
         }else {
-            const productsInsideCart = products.products.filter(item => productsId.includes(item.id))
+            const productsInsideCart = product.filter(item => productsId.includes(item.id))
        
             const arrayTotals = productsInsideCart.map( p => {
              const productCartObj = productCart.filter( item => item.productId === p.id)
@@ -102,10 +90,3 @@ export const selectTotalCart = createSelector(
 
 })
 
-// export const selectGetQuantityById = (state: State, id: number) => {
-//     const quantity = state.carts.carts[0].products.filter(i => {
-//         return i.productId === id
-//     })
-
-//     return quantity[0].quantity
-// }
