@@ -5,17 +5,17 @@
     background-color: white;
     padding: 24px 48px;
     margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: rgb(80, 79, 79);
 }
 
 .menu a:not(:last-child) {
     margin-right: 10px;
 }
 
-/* .menu a:last-child {
-    margin-left: auto;
+.menu a:visited {
+    color: green;
 }
-
-.user {
-    margin-left: auto;
-} */
-
