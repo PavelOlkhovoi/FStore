@@ -3,6 +3,7 @@ import { selectSingleProduct } from "../store/selectors";
 import { useParams } from "react-router-dom";
 import { useTypedSelector } from "../hooks/useTypedSelect";
 import { formatCost } from '../utils/reducers/commonFunc';
+import Button from '../components/UI/btn/Button';
 
 
 const Product: FC = () => {
@@ -18,7 +19,13 @@ const Product: FC = () => {
             <p>{product.description}</p>
             <p>{ formatCost(product.price) }</p>
             <p>Raiting: {product.rating.rate}</p>
-            <img src={product.image} style={{width: '300px', margin: "0 auto", display: "block"}}/>
+            {/* <Button>
+                Add Product
+            </Button>
+            <Button>
+                Delete Product
+            </Button> */}
+            <img src={product.image} style={{width: '40%', margin: "16px auto", display: "block"}}/>
         </div>
     )
 }

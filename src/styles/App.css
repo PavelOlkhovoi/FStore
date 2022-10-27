@@ -83,4 +83,11 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .menu-cart {
+    display: flex;
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
+  }
 }

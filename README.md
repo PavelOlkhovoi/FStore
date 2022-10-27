@@ -46,3 +46,5 @@ I want to add new advanced features for filtering.
 Room for improvement:
 - Add the price fild in the current cart.
 - Selectors refactoring
+- Add remove and add to cart buttons on the product page
+- Style active menu items when it is active one

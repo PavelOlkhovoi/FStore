@@ -19,3 +19,10 @@
 .menu a:visited {
     color: green;
 }
+
+
+@media only screen and (max-width: 480px) {
+    .menu {
+        padding: 18px 14px;
+    }
+}
