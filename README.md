@@ -48,3 +48,4 @@ Room for improvement:
 - Selectors refactoring
 - Add remove and add to cart buttons on the product page
 - Style active menu items when it is active one
+- If visiting a single product page directly from the browser content is not available
