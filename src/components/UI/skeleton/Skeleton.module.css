@@ -7,7 +7,8 @@
 
     grid-template-areas: 
         'menu menu'
-        'filter content';
+        'filter content'
+        'footer footer';
 }
 
 .menu {
@@ -22,11 +23,18 @@
     grid-area: content;
 }
 
+.footer{
+    grid-area: footer;
+
+    margin-top: 28px;
+}
+
 @media only screen and (max-width: 780px) {
     .maingrid {
         grid-template-areas: 
         'menu menu'
         'filter filter'
-        'content content';
+        'content content'
+        'footer footer';
     }
   }

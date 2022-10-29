@@ -1,7 +1,6 @@
 import Categories from "../components/categories/Categories"
+import Footer from "../components/UI/footer/Footer"
 import Skeleton from "../components/UI/skeleton/Skeleton"
-import AllProducts from "./AllProducts"
-import Menu from "../components/menu/Menu"
 import ProductsWithPagination from "./ProductsWithPagination"
 
 const Home = () => {
@@ -10,6 +9,7 @@ const Home = () => {
             <Skeleton>
                 <Categories/>
                 <ProductsWithPagination />
+                <Footer />
             </Skeleton>
         </div>
     )
