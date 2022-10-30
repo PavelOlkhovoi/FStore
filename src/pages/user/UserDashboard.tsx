@@ -3,6 +3,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelect"
 import HistoryOrders from "./HistoryOrders"
 import { firstCapitalLetter } from "../../utils/reducers/commonFunc"
 import { FC } from "react";
+import Footer from "../../components/UI/footer/Footer";
 
 
 interface Props {
@@ -26,6 +27,7 @@ const UserDashboard = () => {
            <Skeleton>
             <DashboardTitle firstname={user?.name.firstname} lastname={user?.name.lastname} />
             <HistoryOrders id={user?.id} />
+            <Footer />
            </Skeleton>
         </div>
     )

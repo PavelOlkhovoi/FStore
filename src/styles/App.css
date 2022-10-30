@@ -71,6 +71,12 @@
   text-align: end;
 }
 
+hr{
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
+
 @media only screen and (max-width: 1000px) {
   .cards_container {
     display: grid;

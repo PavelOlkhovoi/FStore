@@ -1,6 +1,6 @@
 .pagination {
     display: flex;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .pagination > div:not(:first-child) {
@@ -9,7 +9,7 @@
 .pagination > div {
     width: 24px;
     height: 24px;
-    border: 1px solid blue;
+    border: 1px solid rgb(92, 92, 225);
     text-align: center;
     line-height: 22px;
     transition: all 4ms ease-in;
