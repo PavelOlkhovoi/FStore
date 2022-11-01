@@ -3,7 +3,6 @@ import { selectSingleProduct } from "../store/selectors";
 import { useParams } from "react-router-dom";
 import { useTypedSelector } from "../hooks/useTypedSelect";
 import { formatCost } from '../utils/reducers/commonFunc';
-import Button from '../components/UI/btn/Button';
 import AddButon from '../components/UI/btn/AddButton';
 
 
@@ -12,6 +11,9 @@ const Product: FC = () => {
     const id: number = parseInt(productId!)
     const [product] = useTypedSelector(state => selectSingleProduct(state, id))
 
+    if(!product){
+        return <h1>Loading</h1>
+    }
     
     return (
         <div className='product-full'>
