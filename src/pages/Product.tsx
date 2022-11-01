@@ -11,7 +11,10 @@ const Product: FC = () => {
     const { productId } = useParams();
     const id: number = parseInt(productId!)
     const [product] = useTypedSelector(state => selectSingleProduct(state, id))
-    console.log(product)
+
+    if(!product){
+        return <h1>Loading</h1>
+    }
     
     return (
         <>
