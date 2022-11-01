@@ -1,7 +1,7 @@
 import { Dispatch } from "react"
 import { fetchAllProducts, fetchUser } from "../../api"
 import { AllCartsActions, TypeOfCartsAction } from "../../types/cart"
-import { AllProductsActions, Product, TypedOfProductsActions } from "../../types/products"
+import { AllProductsActions, TypedOfProductsActions } from "../../types/products"
 import { AllUserAction, TypedUserAction } from "../../types/user"
 import { AllLoadingActions, TypeOfLoadingAction } from "../reducers/loadingReducer"
 

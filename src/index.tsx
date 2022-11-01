@@ -4,6 +4,7 @@ import App  from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { BrowserRouter } from 'react-router-dom';
+import Loading from './HOCs/Loading';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
   </BrowserRouter>
 );

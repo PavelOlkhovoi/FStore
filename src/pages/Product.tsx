@@ -11,7 +11,7 @@ const Product: FC = () => {
     const { productId } = useParams();
     const id: number = parseInt(productId!)
     const [product] = useTypedSelector(state => selectSingleProduct(state, id))
-
+    console.log(product)
     
     return (
         <>

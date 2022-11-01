@@ -1,18 +1,19 @@
-import React, { ReactComponentElement, FC } from "react"
+import React, {FC, useEffect } from "react"
 import { useTypedSelector } from "../hooks/useTypedSelect";
+import { selectLoading } from "../store/selectors";
 
 interface Props {
     children: React.ReactChild | React.ReactNode;
 }
 
 const Loading: FC<Props> = ({children}) => {
-    const isLoading = useTypedSelector(state => state.loading.loading)
+    const isLoading = useTypedSelector(state => selectLoading(state))
 
     if(!isLoading){
         return <h1>Loading</h1>
-    }else {
-        return <>{children}</>
     }
+
+    return <>{children}</>
 }
 
 export default Loading

@@ -90,3 +90,5 @@ export const selectTotalCart = createSelector(
 
 })
 
+export const selectLoading = (state: State) => state.loading.loading
+

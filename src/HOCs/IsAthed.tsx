@@ -3,7 +3,6 @@ import { State } from '../store';
 import { Navigate } from "react-router-dom"
 import React, {FC,ReactNode, useEffect} from "react"
 import { RootUser } from '../types/user';
-import { useActions } from '../hooks/useAction';
 import { LoadingState } from '../store/reducers/loadingReducer';
 
 interface Props extends PropsFromRedux {

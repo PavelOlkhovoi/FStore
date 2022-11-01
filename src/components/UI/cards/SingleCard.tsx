@@ -9,7 +9,7 @@ interface Props {
 }
 
 const SingleCard: React.FC<Props> = ({product}) => {
-
+    console.log('Single card body functuion body')
     return (
         <div className={classes.card}>
             <img src={product.image} alt={product.title} />
@@ -21,9 +21,6 @@ const SingleCard: React.FC<Props> = ({product}) => {
                 <AddButon productId={product.id}/>
             </div>
         </div>
-  
-
-
     )
 }
 
