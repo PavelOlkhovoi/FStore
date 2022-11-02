@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { CartProducts } from '../../types/cart'
 import { State } from "../../store";
-import {FC, useState} from 'react'
+import {FC} from 'react'
 import { useActions } from '../../hooks/useAction';
 import Button from '../UI/btn/Button';
 import { formatCost } from "../../utils/reducers/commonFunc"

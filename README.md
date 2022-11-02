@@ -44,7 +44,6 @@ I want to add new advanced features for filtering.
 
 ## Room for Improvement
 Room for improvement:
-- Selectors refactoring
-- Style active menu items when it is active one
-- If visiting a single product page directly from the browser content is not available
 - Add more information on the single order list
+- Selectors refactoring
+- Save the current cart with Local Storage

@@ -4,7 +4,7 @@
     border-bottom: 1px solid rgb(240, 239, 239);
 
     display: grid;
-    grid-template-columns: minmax(100px, 300px) 1fr;
+    grid-template-columns: minmax(100px, 220px) 1fr;
     grid-template-areas: 
         'title title'
         'image content'
@@ -23,7 +23,7 @@ h3 {
 } 
 
 .cartimg img {
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1 / 1;
     width: 100%;
     height: 90%;
@@ -48,4 +48,27 @@ h3 {
 .description {
     max-width: 640px;
     margin-bottom: 32px;
+}
+
+@media screen and (max-width: 620px) { 
+    .onecard {
+        margin: 12px 0;
+        display: grid;
+        grid-template-columns: minmax(100px, 220px) 1fr;
+        grid-template-areas:
+            'image image' 
+            'title title'
+            'content content'
+        ;
+    }
+
+    .cartimg {
+        justify-self: center;
+    } 
+
+    .cartimg img {
+        width: 76%;
+        margin: 8px auto;
+        display: block;
+    }
 }

@@ -36,7 +36,7 @@ const AddButon: FC<Props> = ({productId}) => {
                 Add to cart
             </Button>
             <Button onClick={removeToCartHandler}>
-                Remove from cart
+                Remove
             </Button>
         </>
     )
