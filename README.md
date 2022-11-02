@@ -47,3 +47,4 @@ Room for improvement:
 - Add more information on the single order list
 - Selectors refactoring
 - Save the current cart with Local Storage
+- Delete Redux DevTolls from prodaction

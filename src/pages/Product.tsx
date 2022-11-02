@@ -5,6 +5,7 @@ import { useTypedSelector } from "../hooks/useTypedSelect";
 import { formatCost } from '../utils/reducers/commonFunc';
 import AddButon from '../components/UI/btn/AddButton';
 import Footer from '../components/UI/footer/Footer';
+import Loading from '../components/UI/loading/Loading';
 
 
 const Product: FC = () => {
@@ -13,7 +14,7 @@ const Product: FC = () => {
     const [product] = useTypedSelector(state => selectSingleProduct(state, id))
 
     if(!product){
-        return <h1>Loading</h1>
+        return <Loading />
     }
     
     return (

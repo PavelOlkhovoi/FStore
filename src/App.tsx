@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useActions } from './hooks/useAction';
 import { useTypedSelector } from './hooks/useTypedSelect';
 import { selectArrayOfProduct, selectLoading, selectProducts } from './store/selectors';
+import Loading from './components/UI/loading/Loading';
 
 const App = () => {
   const {initialData} = useActions()
@@ -18,7 +19,7 @@ const App = () => {
   },[])
 
   if(isLoading){
-    return <h1>Loading</h1>
+    return <Loading />
   }
 
   return (
